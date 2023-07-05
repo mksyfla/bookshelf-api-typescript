@@ -10,7 +10,7 @@ export function bookFilterFunction(bookId: string): BookInterface {
   return books.filter((book) => book.id === bookId)[0];
 }
 
-export function errorResponse(res: Response, statusCode: number, status: string, message: string) {
+export function errorResponse(res: Response, statusCode: number, status: string, message: string): Response {
   return res.status(statusCode)
     .send({
       status: status,

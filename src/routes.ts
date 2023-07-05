@@ -52,12 +52,30 @@ router.post("/books", (req: Request, res: Response) => {
 });
 
 router.get("/books", (req: Request, res: Response) => {
+  const nameQuery: string = req.query.name as string;
+  const readingQuery: string = req.query.reading as string;
+  const finishedQuery: string = req.query.finished as string;
+
+  let datas: Array<BookInterface> = books;
+
+  if (nameQuery) {
+    datas = datas.filter((data: BookInterface) => data.name.toLowerCase().includes(nameQuery.toLowerCase()));
+  }
+
+  if (readingQuery) {
+    datas = datas.filter((data: BookInterface) => data.reading === Boolean(Number(readingQuery)));
+  }
+
+  if (finishedQuery) {
+    datas = datas.filter((data: BookInterface) => data.finished === Boolean(Number(finishedQuery)));
+  }
+
   return res
     .status(200)
     .send({
       status: "success",
       data: {
-        books: books.map((book) => ({
+        books: datas.map((book) => ({
           id: book.id,
           name: book.name,
           publisher: book.publisher,
