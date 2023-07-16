@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689481972806" clover="3.2.0">
-  <project timestamp="1689481972806" name="All files">
-    <metrics statements="47" coveredstatements="47" conditionals="11" coveredconditionals="9" methods="19" coveredmethods="19" elements="77" coveredelements="75" complexity="0" loc="47" ncloc="47" packages="6" files="6" classes="6"/>
+<coverage generated="1689511242456" clover="3.2.0">
+  <project timestamp="1689511242456" name="All files">
+    <metrics statements="53" coveredstatements="53" conditionals="11" coveredconditionals="9" methods="24" coveredmethods="24" elements="88" coveredelements="86" complexity="0" loc="53" ncloc="53" packages="6" files="8" classes="8"/>
     <package name="src.data">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Books.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\data\Books.ts">
@@ -66,7 +66,19 @@
       </file>
     </package>
     <package name="src.usecases">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <file name="GetBookByIdUseCase.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\usecases\GetBookByIdUseCase.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="GetBooksUseCase.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\usecases\GetBooksUseCase.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
       <file name="PostBookUseCases.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\usecases\PostBookUseCases.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
