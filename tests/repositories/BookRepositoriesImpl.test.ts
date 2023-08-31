@@ -4,7 +4,6 @@ import { Books } from "../../src/data/Books";
 import { BookInterfaces } from "../../src/interfaces/BookInterfaces";
 import { BookEntities } from "../../src/entities/BookEntities";
 import { InputBookInterfaces } from "../../src/interfaces/InputBookInterfaces";
-import { ResponseErrors } from "../../src/errors/ResponseErrors";
 
 describe("BookRepositoriesImpl", () => {
   afterEach(() => {

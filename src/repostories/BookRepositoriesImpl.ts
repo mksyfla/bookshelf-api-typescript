@@ -13,7 +13,7 @@ export class BookRepositoriesImpl implements BookRepositories {
   }
 
   postBook(payload: BookEntities): string {
-    const date = new Date().toISOString();
+    const date: string = new Date().toISOString();
     const id: string = this.idGenerator();
     const insertedAt: string = date;
     const updatedAt: string = date;
@@ -33,7 +33,7 @@ export class BookRepositoriesImpl implements BookRepositories {
   }
 
   getBookById(id: string): BookInterfaces {
-    const bookFilter = Books.filter((book) => book.id === id)[0];
+    const bookFilter: BookInterfaces = Books.filter((book) => book.id === id)[0];
     if (!bookFilter) {
       throw new ResponseErrors(404, "fail", "buku_tidak_ditemukan");
     }
@@ -41,9 +41,9 @@ export class BookRepositoriesImpl implements BookRepositories {
   }
 
   putBookById(id: string, payload: BookEntities): void {
-    const date = new Date().toISOString();
+    const date: string = new Date().toISOString();
     const updatedAt: string = date;
-    const index: number = Books.findIndex((book) => book.id === id);;
+    const index: number = Books.findIndex((book) => book.id === id);
 
     if (index !== -1) {
       Books[index] = {

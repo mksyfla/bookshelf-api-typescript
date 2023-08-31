@@ -31,7 +31,7 @@ describe("PostBookUseCases", () => {
       getBookById: jest.fn().mockImplementation(),
       putBookById: jest.fn().mockImplementation(),
       deleteBookById: jest.fn().mockImplementation()
-    } 
+    };
 
     const postBookUseCases = new PostBookUseCases(mockBookRepositories);
 
