@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693486460979" clover="3.2.0">
-  <project timestamp="1693486460979" name="All files">
-    <metrics statements="57" coveredstatements="57" conditionals="11" coveredconditionals="9" methods="26" coveredmethods="26" elements="94" coveredelements="92" complexity="0" loc="57" ncloc="57" packages="6" files="9" classes="9"/>
+<coverage generated="1693555615446" clover="3.2.0">
+  <project timestamp="1693555615447" name="All files">
+    <metrics statements="61" coveredstatements="61" conditionals="11" coveredconditionals="9" methods="28" coveredmethods="28" elements="100" coveredelements="98" complexity="0" loc="61" ncloc="61" packages="6" files="10" classes="10"/>
     <package name="src.data">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Books.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\data\Books.ts">
@@ -40,9 +40,9 @@
       </file>
     </package>
     <package name="src.repostories">
-      <metrics statements="20" coveredstatements="20" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
+      <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
       <file name="BookRepositoriesImpl.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\repostories\BookRepositoriesImpl.ts">
-        <metrics statements="20" coveredstatements="20" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
+        <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
         <line num="12" count="6" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -63,10 +63,17 @@
         <line num="67" count="1" type="stmt"/>
         <line num="68" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="69" count="1" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.usecases">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>
+      <file name="DeleteBookByIdUseCase.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\usecases\DeleteBookByIdUseCase.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
       <file name="GetBookByIdUseCase.ts" path="D:\Backup\Coding\project\bookshelf-api-typescript\src\usecases\GetBookByIdUseCase.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>

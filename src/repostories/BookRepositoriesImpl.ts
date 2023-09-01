@@ -43,7 +43,7 @@ export class BookRepositoriesImpl implements BookRepositories {
   putBookById(id: string, payload: BookEntities): void {
     const date: string = new Date().toISOString();
     const updatedAt: string = date;
-    const index: number = Books.findIndex((book) => book.id === id);
+    const index: number = this.findIndex(id);
 
     if (index !== -1) {
       Books[index] = {
@@ -64,9 +64,13 @@ export class BookRepositoriesImpl implements BookRepositories {
   }
 
   deleteBookById(id: string): void {
-    const index: number = Books.findIndex((book) => book.id === id);;
+    const index: number = this.findIndex(id);
     if (index !== -1) {
       Books.splice(index, 1);
     }
+  }
+
+  private findIndex(id: string): number {
+    return Books.findIndex((book) => book.id === id);
   }
 }

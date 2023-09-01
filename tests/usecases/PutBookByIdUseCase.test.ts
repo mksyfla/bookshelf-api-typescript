@@ -7,7 +7,7 @@ describe("PutBookByIdUseCase", () => {
     id: string;
   }
 
-  it("should orchestrating the post book action correctly", () => {
+  it("should orchestrating the put book action correctly", () => {
     const payload: InputBookInterfaces = {
       name: "name_updated",
       year: 2010,
@@ -34,7 +34,7 @@ describe("PutBookByIdUseCase", () => {
     const putBookByIdUseCase = new PutBookByIdUseCase(mockBookRepositories);
     
     putBookByIdUseCase.execute(payloadId.id, payload);
-    console.log(mockBookRepositories.putBookById);
+
     expect(mockBookRepositories.getBookById).toBeCalledWith(payloadId.id);
     expect(mockBookRepositories.putBookById).toBeCalledWith(payloadId.id, {
       name: "name_updated",
