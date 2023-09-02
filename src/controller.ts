@@ -1,19 +1,17 @@
 import { Request, Response } from "express";
-import { BookInterface } from "./interfaces";
+import { BookInterface, InputBookInterface } from "./interfaces";
 import { books } from "./books";
 import { bookFilterFunction, bookIndexFunction, errorResponse } from "./helper";
 
 export function postBook(req: Request, res: Response) {
-  const {
-    name, year, author, summary, publisher, pageCount, readPage, reading
-  } = req.body;
+  const payload: InputBookInterface = req.body;
 
-  if (!name) {
+  if (!payload.name) {
     errorResponse(res, 400, "fail", "Gagal menambahkan buku. Mohon isi nama buku");
     return;
   }
 
-  if (readPage > pageCount) {
+  if (payload.readPage > payload.pageCount) {
     errorResponse(res, 400, "fail", "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount");
     return;
   }
@@ -21,19 +19,19 @@ export function postBook(req: Request, res: Response) {
   const id: string = String(Math.floor(Math.random() * 10000000000));
   const insertedAt: string = new Date().toISOString();
   const updatedAt: string = insertedAt;
-  const finished: boolean = pageCount === readPage;
+  const finished: boolean = payload.pageCount === payload.readPage;
 
   const newBook: BookInterface = {
     id: id,
-    name: name,
-    year: year,
-    author: author,
-    summary: summary,
-    publisher: publisher,
-    pageCount: pageCount,
-    readPage: readPage,
+    name: payload.name,
+    year: payload.year,
+    author: payload.author,
+    summary: payload.summary,
+    publisher: payload.publisher,
+    pageCount: payload.pageCount,
+    readPage: payload.readPage,
     finished: finished,
-    reading: reading,
+    reading: payload.reading,
     insertedAt: insertedAt,
     updatedAt: updatedAt
   }
@@ -54,7 +52,7 @@ export function postBook(req: Request, res: Response) {
 
 export function getBooks(req: Request, res: Response): void {
   const nameQuery: string = req.query.name as string;
-  const readingQuery: string = req.query.reading as string;
+  const readingQuery: number = parseInt(req.query.reading as string);
   const finishedQuery: string = req.query.finished as string;
 
   let datas: Array<BookInterface> = books;
@@ -63,7 +61,7 @@ export function getBooks(req: Request, res: Response): void {
     datas = datas.filter((data: BookInterface) => data.name.toLowerCase().includes(nameQuery.toLowerCase()));
   }
 
-  if (readingQuery) {
+  if (readingQuery === 1) {
     datas = datas.filter((data: BookInterface) => data.reading === Boolean(Number(readingQuery)));
   }
 
@@ -117,36 +115,34 @@ export function putBookById(req: Request, res: Response): void {
     return;
   }
 
-  const {
-    name, year, author, summary, publisher, pageCount, readPage, reading
-  } = req.body;
+  const payload: InputBookInterface = req.body;
 
-  if (!name) {
+  if (!payload.name) {
     errorResponse(res, 400, "fail", "Gagal memperbarui buku. Mohon isi nama buku");
     return;
   }
 
-  if (readPage > pageCount) {
+  if (payload.readPage > payload.pageCount) {
     errorResponse(res, 400, "fail", "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount");
     return;
   }
 
   const updatedAt: string = new Date().toISOString();
-  const finished: boolean = pageCount === readPage;
+  const finished: boolean = payload.pageCount === payload.readPage;
   const bookIndex: number = bookIndexFunction(bookId);
   
   if (bookIndex !== -1) {
     books[bookIndex] = {
       ...books[bookIndex],
-      name: name,
-      year: year,
-      author: author,
-      summary: summary,
-      publisher: publisher,
-      pageCount: pageCount,
-      readPage: readPage,
+      name: payload.name,
+      year: payload.year,
+      author: payload.author,
+      summary: payload.summary,
+      publisher: payload.publisher,
+      pageCount: payload.pageCount,
+      readPage: payload.readPage,
       finished: finished,
-      reading: reading,
+      reading: payload.reading,
       updatedAt: updatedAt
     }
   }
