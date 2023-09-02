@@ -1,3 +1,4 @@
+import { ResponseErrors } from "../errors/ResponseErrors";
 import { InputBookInterfaces } from "../interfaces/InputBookInterfaces";
 
 export class BookEntities {
@@ -27,10 +28,10 @@ export class BookEntities {
 
   private verifyPayload(payload: InputBookInterfaces): void {
     if (!payload.name) {
-      throw new Error("doesnt_have_any_name");
+      throw new ResponseErrors(400, "fail", "Mohon isi nama buku");
     }
     if (payload.readPage > payload.pageCount) {
-      throw new Error("read_page_is_more_than_the_page_count");
+      throw new ResponseErrors(400, "fail", "readPage tidak boleh lebih besar dari pageCount");
     }
   }
 
